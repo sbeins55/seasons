@@ -20,8 +20,7 @@ class App extends React.Component {
     );
   }
 
-  // Define render that returns JSX
-  render() {
+  getContent() {
     if (!!this.state.lat) {
       return <SeasonDisplay latitude={this.state.lat} />;
     }
@@ -30,7 +29,12 @@ class App extends React.Component {
       return <div>Error: {this.state.error}</div>;
     }
 
-    return <TextLoader loadMessage="Loading" />;
+    return <TextLoader loadMessage="Please Allow Location Services" />;
+  }
+
+  // Define render that returns JSX
+  render() {
+    return this.getContent()
   }
 }
 
